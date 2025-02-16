@@ -1,0 +1,26 @@
+!SESSION 2025-02-15 19:44:33.101 -----------------------------------------------
+eclipse.buildId=Version 1.17.0
+java.version=21.0.3
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2025-02-15 19:45:09.427
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2025-02-15 19:45:09.428
+!MESSAGE Log4j2 initialized with config file C:\Users\panda\Desktop\Senior Design\Team22-Gesture\STMcode\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2025-02-15 19:45:15.402
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-02-15 19:48:04.202
+!MESSAGE Indexed 'GestureMouse' (38 sources, 141 headers) in 4.23 sec: 14,250 declarations; 67,419 references; 1 unresolved inclusions; 92 syntax errors; 240 unresolved names (0.29%)
+
+!ENTRY com.st.stm32cube.common.projectcreation 4 0 2025-02-15 19:52:11.906
+!MESSAGE Project is null
+
+!ENTRY org.eclipse.core.resources 2 2 2025-02-15 19:52:57.195
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2025-02-15 19:52:57.195
+!MESSAGE The project description file (.project) for 'GestureMouse' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.

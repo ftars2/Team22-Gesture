@@ -1,0 +1,2 @@
+../Core/Src/sensor_handler.c:22:6:Sensor_Init	8	static
+../Core/Src/sensor_handler.c:34:6:DetectGesture	1392	static

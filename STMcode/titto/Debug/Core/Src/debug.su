@@ -1,0 +1,2 @@
+../Core/Src/debug.c:12:5:__io_putchar	16	static
+../Core/Src/debug.c:17:6:Debug_Init	8	static

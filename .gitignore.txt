@@ -1,0 +1,12 @@
+/Debug/
+/Release/
+/ipch/
+/*.dep
+/*.lst
+/*.map
+/*.o
+/*.d
+/*.axf
+/*.elf
+/*.bin
+/*.hex
