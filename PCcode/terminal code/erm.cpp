@@ -71,7 +71,7 @@ void ReadSerialPort(const char* portName) {
 }
 
 int main() {
-    const char* portName = "\\\\.\\COM19";  // Change if necessary (e.g., "\\.\COM10" for COM10+)
+    const char* portName = "COM3";  // Change if necessary (e.g., "\\.\COM10" for COM10+)
     ReadSerialPort(portName);
     return 0;
 }

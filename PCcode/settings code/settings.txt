@@ -1,0 +1,6 @@
+down: Darrow
+left: Larrow
+push: leftclk
+right: Rarrow
+sensitivity: 10
+up: Uarrow
