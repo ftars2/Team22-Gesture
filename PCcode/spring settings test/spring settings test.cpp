@@ -21,8 +21,10 @@ const char* filename = "settings.txt";
 
 //default settings for settings expecting number
 const std::map<std::string, std::string> NDsettings = {
-    {"sensitivity", "10"},
-    {"mouse threshold", "10"}
+    {"mouse sensitivity", "10"},
+    {"mouse threshold", "10"},
+    {"usable range", "1000"},
+    {"gesture threshold", "4"}
 };
 
 //default settings for gestures
@@ -58,7 +60,7 @@ void createDefault() {
     else {
         cout << "Settings.txt created\n";
         //if wanted to write settings instructions, do it here,
-        file << "For gesture settings there can be multiple key presses that are pressed in order. you can type approved commands, or put string/characters in \" \". If you type a character (ex: \"a\") then it will be held. If you type a string, all previously held buttons will be released. Approved macros will be held.\nAproved macros:\nLclick, Rclick, onScreenKeyboard, Space, Alt, Win, Ctrl, Lshift, Caps, Tab, Esc, Enter, F1-F12, Volume_up, Volume_down, Mute, Pause/Play, Backspace, Left_arrow, Right_arrow, Up_arrow, Down_arrow, any other expected values in \"\".\nexample formats:\nShift + Tab\nCtrl + \"s\"\nCtrl + \"t\" + \"youtube.com\" + Enter\n\nNumerical settings require a number (negative or possitve, can be a decimal).\n\n";
+        file << "For gesture settings there can be multiple key presses that are pressed in order. you can type approved commands, or put string/characters in \" \". If you type a character (ex: \"a\") then it will be held. If you type a string, all previously held buttons will be released. Approved macros will be held.\nAproved macros:\nLclick, Rclick, onScreenKeyboard, Space, Alt, Win, Ctrl, Lshift, Caps, Tab, Esc, Enter, F1-F12, Volume_up, Volume_down, Mute, Pause/Play, Backspace, Left_arrow, Right_arrow, Up_arrow, Down_arrow, any other expected values in \"\".\nexample formats:\nShift + Tab\nCtrl + \"s\"\nCtrl + \"t\" + \"youtube.com\" + Enter\n\nNumerical settings require a number.\n\n";
         file << "Gesture settings (type \"N/A\" for no action):\n";
         for (const auto& pair : GDsettings) {
             file << pair.first << ": " << pair.second << "\n";
