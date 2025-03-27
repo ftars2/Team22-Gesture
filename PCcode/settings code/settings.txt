@@ -1,6 +1,16 @@
-down: Darrow
-left: Larrow
-push: leftclk
-right: Rarrow
+For gesture settings there can be multiple key presses that are pressed in order. if you type a phrase in "" then they will be typed out. if you type a character (ex: "a") then it will be held.
+Aproved macros:
+Lclick, Rclick, onScreenKeyboard, Space, Alt, Win, Ctrl, Lshift, Caps, Tab, Esc, Enter, F1-F12, Volume_up, Volume_down, Mute, Pause/Play, Backspace, Left_arrow, Right_arrow, Up_arrow, Down_arrow, any other expected values in "".
+example formats:
+Shift + TabCtrl + "s"Ctrl + "t" + "youtube.com" + Enter
+Numerical settings require a number (integer)
+
+Gesture settings (type "N/A" for no action):
+down: Down_arrow + "wasd" + Shift
+left: Left_arrow
+push: Lclick
+right: Right_arrow
+up: Up_arrow
+Numerical settings (Requires a value):
+mouse threshold: 10
 sensitivity: 10
-up: Uarrow

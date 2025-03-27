@@ -1,0 +1,3 @@
+﻿  spring settings test.cpp
+C:\Users\panda\Desktop\Senior Design\Team22-Gesture\PCcode\spring settings test\spring settings test.cpp(202,1): warning C4715: 'checkSettings': not all control paths return a value
+  spring settings test.vcxproj -> C:\Users\panda\Desktop\Senior Design\Team22-Gesture\PCcode\spring settings test\x64\Debug\spring settings test.exe

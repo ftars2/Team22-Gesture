@@ -3,37 +3,59 @@
 #include <map>
 #include <string>
 
-const std::string filename = "settings.txt";
+/*
+aproved macros:
+Space, Alt, Win, Ctrl, Lshift, Caps, Tab, Esc, Enter, F1-F12, Volume_up, Volume_down, Mute, Pause/Play, Backspace, Left_arrow, Right_arrow, Up_arrow, Down_arrow, any other expected values in "".
+example formats: 
+    Shift + Tab
+    Ctrl + "s"
+    ctrl + "t" + "youtube.com" + Enter
+https://learn.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes 
+*/
 
-void createDefaultSettings(std::map<std::string, std::string>& settings) {
-    settings = {
-        {"push", "leftclk"},
-        {"left", "Larrow"},
-        {"right", "Rarrow"},
-        {"up", "Uarrow"},
-        {"down", "Darrow"},
-        {"sensitivity", "10"}
-    };
-    
+const std::string filename = "settings.txt";
+const std:: map<std::string, std::string> settings={
+    {"push", "leftclk"},
+    {"left", "Larrow"},
+    {"right", "Rarrow"},
+    {"up", "Uarrow"},
+    {"down", "Darrow"},
+    {"sensitivity", "10"},
+    {"mouse threshold", "10"}
+};
+
+// void createDefaultSettings(std::map<std::string, std::string>& settings) {
+//     settings = {
+//         {"push", "leftclk"},
+//         {"left", "Larrow"},
+//         {"right", "Rarrow"},
+//         {"up", "Uarrow"},
+//         {"down", "Darrow"},
+//         {"sensitivity", "10"},
+//         {"mouse threshold", "10"}
+//     };
+// }
+void writeSettingsToFile(const std::map<std::string, std::string>& settings) {
     std::ofstream file(filename);
     if (file.is_open()) {
         for (const auto& pair : settings) {
             file << pair.first << ": " << pair.second << "\n";
         }
         file.close();
-        std::cout << "Settings set to default." << std::endl;
     } else {
-        std::cerr << "Error: Could not create settings file!" << std::endl;
+        std::cerr << "Error: Could not write to settings file!" << std::endl;
     }
 }
 
 void loadSettings(std::map<std::string, std::string>& settings) {
     std::ifstream file(filename);
     if (!file.is_open()) {
-        createDefaultSettings(settings);
+        // createDefaultSettings(settings);
+        writeSettingsToFile(settings);
+        std::cout << "Settings set to default." << std::endl;
         return;
     }
-
+    
     std::string line;
     while (std::getline(file, line)) {
         size_t pos = line.find(": ");
@@ -44,6 +66,25 @@ void loadSettings(std::map<std::string, std::string>& settings) {
         }
     }
     file.close();
+    
+    std::map<std::string, std::string> defaultSettings;
+    // createDefaultSettings(defaultSettings);
+    
+    bool updated = false;
+    std::string updatedSettings;
+    for (const auto& pair : defaultSettings) {
+        if (settings.find(pair.first) == settings.end()) {
+            settings[pair.first] = pair.second;
+            updatedSettings += pair.first + "\n";
+            updated = true;
+        }
+    }
+    
+    if (updated) {
+        writeSettingsToFile(settings);
+        std::cout << "Missing settings added to file:\n" << updatedSettings << std::endl;
+    }
+    
     std::cout << "Settings loaded." << std::endl;
 }
 
