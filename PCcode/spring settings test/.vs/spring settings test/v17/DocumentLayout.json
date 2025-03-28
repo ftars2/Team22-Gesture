@@ -3,19 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\panda\\Desktop\\Senior Design\\Team22-Gesture\\PCcode\\spring settings test\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E14CF328-0BB8-4D66-9C18-BEC6F886994B}|spring settings test.vcxproj|C:\\Users\\panda\\Desktop\\Senior Design\\Team22-Gesture\\PCcode\\spring settings test\\header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{E14CF328-0BB8-4D66-9C18-BEC6F886994B}|spring settings test.vcxproj|solutionrelative:header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E14CF328-0BB8-4D66-9C18-BEC6F886994B}|spring settings test.vcxproj|C:\\Users\\panda\\Desktop\\Senior Design\\Team22-Gesture\\PCcode\\spring settings test\\spring settings test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E14CF328-0BB8-4D66-9C18-BEC6F886994B}|spring settings test.vcxproj|solutionrelative:spring settings test.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E14CF328-0BB8-4D66-9C18-BEC6F886994B}|spring settings test.vcxproj|C:\\Users\\panda\\Desktop\\Senior Design\\Team22-Gesture\\PCcode\\spring settings test\\plus.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{E14CF328-0BB8-4D66-9C18-BEC6F886994B}|spring settings test.vcxproj|solutionrelative:plus.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E14CF328-0BB8-4D66-9C18-BEC6F886994B}|spring settings test.vcxproj|C:\\Users\\panda\\Desktop\\Senior Design\\Team22-Gesture\\PCcode\\spring settings test\\header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{E14CF328-0BB8-4D66-9C18-BEC6F886994B}|spring settings test.vcxproj|solutionrelative:header.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\include\\utility||{3B902123-F8A7-4915-9F01-361F908088D0}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -25,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -36,37 +33,21 @@
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
-            },
-            {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "utility",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\include\\utility",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\include\\utility",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\include\\utility",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\include\\utility",
-              "ViewState": "AgIAAO4CAAAAAAAAAAAlwAEDAAA3AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-03-25T18:00:39.905Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "plus.cpp",
               "DocumentMoniker": "C:\\Users\\panda\\Desktop\\Senior Design\\Team22-Gesture\\PCcode\\spring settings test\\plus.cpp",
               "RelativeDocumentMoniker": "plus.cpp",
               "ToolTip": "C:\\Users\\panda\\Desktop\\Senior Design\\Team22-Gesture\\PCcode\\spring settings test\\plus.cpp",
               "RelativeToolTip": "plus.cpp",
-              "ViewState": "AgIAABMAAAAAAAAAAAAuwD8AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAAwD8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-25T18:00:31.145Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "header.h",
               "DocumentMoniker": "C:\\Users\\panda\\Desktop\\Senior Design\\Team22-Gesture\\PCcode\\spring settings test\\header.h",
               "RelativeDocumentMoniker": "header.h",
@@ -74,17 +55,18 @@
               "RelativeToolTip": "header.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-03-25T18:00:09.567Z"
+              "WhenOpened": "2025-03-25T18:00:09.567Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "spring settings test.cpp",
               "DocumentMoniker": "C:\\Users\\panda\\Desktop\\Senior Design\\Team22-Gesture\\PCcode\\spring settings test\\spring settings test.cpp",
               "RelativeDocumentMoniker": "spring settings test.cpp",
               "ToolTip": "C:\\Users\\panda\\Desktop\\Senior Design\\Team22-Gesture\\PCcode\\spring settings test\\spring settings test.cpp",
               "RelativeToolTip": "spring settings test.cpp",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAD4AAAC3AgAAAAAAAA==",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAAwOYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-03-25T17:57:33.475Z",
               "EditorCaption": ""
