@@ -36,27 +36,29 @@ void LeftClick(bool Ldown) {//send once to push LMB down, another to release
     INPUT inputs[1] = {};
     if (Ldown) {
         inputs[0].type = INPUT_MOUSE;
-        inputs[0].mi.dwFlags = MOUSEEVENTF_LEFTUP;
+        inputs[0].mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
     }
     else {
         inputs[0].type = INPUT_MOUSE;
-        inputs[0].mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
+        inputs[0].mi.dwFlags = MOUSEEVENTF_LEFTUP;
     }
     SendInput(1, inputs, sizeof(INPUT));
 
 }
-void RightClick(bool Rdown) {//send once to push RMB down, another to release
+void RightClick(bool Rdown) { // Send once to press RMB down, another time to release
     INPUT inputs[1] = {};
+    inputs[0].type = INPUT_MOUSE;
+
     if (Rdown) {
-        inputs[0].type = INPUT_MOUSE;
-        inputs[0].mi.dwFlags = MOUSEEVENTF_RIGHTUP;
+        inputs[0].mi.dwFlags = MOUSEEVENTF_RIGHTDOWN; // Corrected
     }
     else {
-        inputs[0].type = INPUT_MOUSE;
-        inputs[0].mi.dwFlags = MOUSEEVENTF_RIGHTDOWN;
+        inputs[0].mi.dwFlags = MOUSEEVENTF_RIGHTUP;   // Corrected
     }
+
     SendInput(1, inputs, sizeof(INPUT));
 }
+
 // Function to press a key
 void pressKey(WORD key, bool hold) {
     INPUT input = { 0 };

@@ -14,4 +14,5 @@ std::string FindComPortForDevice(const std::wstring& targetDeviceDescription);
 void ReadSerialPort(const char* portName);
 void PrintLastError();
 int com_main();
+void SendSettingsData(HANDLE hSerial);
 #endif // COM_PORT_H

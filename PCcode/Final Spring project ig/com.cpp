@@ -4,11 +4,56 @@
 #include <locale>
 #include <codecvt>
 #include "action.h"
+#include "shared.h"
 
 // Define GUID_DEVCLASS_PORTS if not already defined
 #ifndef GUID_DEVCLASS_PORTS
 DEFINE_GUID(GUID_DEVCLASS_PORTS, 0x4D36E978, 0xE325, 0x11CE, 0xBF, 0xC1, 0x08, 0x00, 0x2B, 0xE1, 0x03, 0x18);
 #endif
+void SendSettingsData(HANDLE hSerial) {
+    // Prepare the byte array to send
+    uint8_t data[12];  // 3 uint32_t values, each 4 bytes
+
+    // Ensure the values can be parsed correctly from the string and convert them to uint32_t
+    uint32_t clickSensitivity = 150;
+    uint32_t usableRange = 1000;
+    uint32_t deltaRange = 70;
+
+    //try {
+    //    clickSensitivity = std::stoul(dave.second["click sensitivity"]);
+    //    usableRange = std::stoul(dave.second["usable range"]);
+    //    deltaRange = std::stoul(dave.second["delta range"]);
+    //}
+    //catch (const std::invalid_argument& e) {
+    //    std::cerr << "Invalid data for settings: " << e.what() << std::endl;
+    //    return;  // Exit if any invalid argument is encountered
+    //}
+    //catch (const std::out_of_range& e) {
+    //    std::cerr << "Data out of range: " << e.what() << std::endl;
+    //    return;  // Exit if the value is out of the expected range
+    //}
+
+    //// Copy each setting into the byte array
+    memcpy(&data[0], &clickSensitivity, sizeof(clickSensitivity));    // First 4 bytes: CLICK_SENSITIVITY
+    memcpy(&data[4], &usableRange, sizeof(usableRange));         // Next 4 bytes: RANGE
+    memcpy(&data[8], &deltaRange, sizeof(deltaRange));          // Last 4 bytes: DELTA_RANGE
+
+    DWORD bytesWritten;
+
+    // Write data to serial port
+    if (!WriteFile(hSerial, data, sizeof(data), &bytesWritten, NULL)) {
+        std::cerr << "Error sending data!" << std::endl;
+        PrintLastError();
+    }
+    else {
+        std::cout << "Sent settings data: ";
+        for (int i = 0; i < sizeof(data); i++) {
+            std::cout << std::hex << (int)data[i] << " ";
+        }
+        std::cout << std::endl;
+    }
+}
+
 
 std::wstring GetDeviceProperty(HDEVINFO deviceInfoSet, SP_DEVINFO_DATA& deviceInfoData, DWORD property)
 {
@@ -114,7 +159,7 @@ void ReadSerialPort(const char* portName) {
         return;
     }
 
-    dcbSerialParams.BaudRate = 460800;  // Match Tera Term baud rate
+    dcbSerialParams.BaudRate = 921600;  // Match Tera Term baud rate
     dcbSerialParams.ByteSize = 8;
     dcbSerialParams.Parity = NOPARITY;
     dcbSerialParams.StopBits = ONESTOPBIT;
@@ -126,9 +171,12 @@ void ReadSerialPort(const char* portName) {
         return;
     }
 
+
+
     // Clear serial buffers before reading
     PurgeComm(hSerial, PURGE_RXCLEAR | PURGE_TXCLEAR);
 
+    //SendSettingsData(hSerial);
     char buffer[256];
     DWORD bytesRead;
     std::string lineBuffer;

@@ -14,71 +14,46 @@ void action(string line) {
     int movex=0;
     int movey=0;
     static string mode = "Mouse";
-    static bool gotx = false;
-    static bool leftC = false, rightC = false;
+    static string click = "none";
 
     pos = line.find(": ");
     if (pos != string::npos) {
         key = line.substr(0, pos);
         val = line.substr(pos + 2);
-       /* key.erase(0, key.find_first_not_of(" \t\r\n"));
-        key.erase(key.find_last_not_of(" \t\r\n") + 1);
-        val.erase(0, val.find_first_not_of(" \t\r\n"));
-        val.erase(val.find_last_not_of(" \t\r\n") + 1);*/
-        //cout << "Parsed key: [" << key << "] Value: [" << val << "]" << endl;
-
-     //cout << "\n" << key << ":"<<val<<endl;
-
         if (key == "Mode") {
+            if (val == "Gesture") {
+
+            
+                if (click == "Push") {
+                    click = "None";
+                    LeftClick(false);
+               }
+                else if (click == "Pull") {
+                    click = "None";
+                    RightClick(false);
+                }
+            }
             mode = val;
-            cout << val<<endl;
-            //cout << "Mode\n\n\n";
         }
-        else if (key == "Delta_X" && mode == "Mouse" && val != "nan") {
+        else if ((key == "AVG_X" || key == "AVG_Y") && mode == "Mouse" && val != "nan" && val!="x") {
             try {
-                Dx += stof(val); // Accumulate Delta_X
-                gotx = true;
-            }
-            catch (const invalid_argument&) {
-                return;
-            }
-        }
-        else if (key == "Delta_Y" && gotx && mode == "Mouse" && val != "nan") {
-            try {
-                Dy += stof(val); // Accumulate Delta_Y
-                gotx = false;
-
+                float position = stof(val) - 3.5; // Convert to joystick-style movement
                 float sensitivity = stof(dave.second["mouse sensitivity"]);
-                int moveX = 0, moveY = 0;
+                float threshold = 0.5; // Adjust this value for a larger/smaller dead zone
 
-                // Process X movement while it's still above threshold
-                while (Dx * sensitivity > 1) {
-                    moveX++;
-                    Dx -= 1;
-                }
-                while (Dx * sensitivity < -1) {
-                    moveX--;
-                    Dx += 1;
+                // Ignore small movements within the dead zone
+                if (position > -threshold && position < threshold) {
+                    return; // No movement if inside the dead zone
                 }
 
-                // Process Y movement while it's still above threshold
-                while (Dy * sensitivity > 1) {
-                    moveY++;
-                    Dy -= 1;
-                }
-                while (Dy * sensitivity < -1) {
-                    moveY--;
-                    Dy += 1;
-                }
+                int moveAmount = static_cast<int>((position-threshold)*sensitivity); // Scale with sensitivity
 
-                // Move the mouse only if there's movement
-                if (moveX != 0 || moveY != 0) {
-                    MoveMouse(-1 * moveX * sensitivity, 1 * moveY * sensitivity);
+                if (key == "AVG_X") {
+                    MoveMouse(-1 * moveAmount, 0); // Move horizontally
                 }
-
-                // Reset Dx and Dy after movement
-                Dx = 0;
-                Dy = 0;
+                else if (key == "AVG_Y") {
+                    MoveMouse(0, 1 * moveAmount); // Move vertically
+                }
             }
             catch (const invalid_argument&) {
                 cout << "error\n\n";
@@ -87,33 +62,47 @@ void action(string line) {
         }
 
         else if (key == "Gesture" && mode == "Gesture") {
-            cout << "gesture "<<val<<"\n\n\n"; 
+            //cout << "gesture "<<val<<"\n\n\n"; 
             processKeySequence(dave.first[val]);
         }
         else if (key == "Click" && mode == "Mouse") {
             if (val == "Push") {
-                if (!leftC) {
-                    LeftClick(true);
-                    leftC = true;
+                if (click == "Push") {
+                    // Does nothing
                 }
-                
+                else if (click == "None") {
+                    click = val;
+                    LeftClick(true);
+                }
+                else if (click == "Pull") {
+                    click = val;
+                    RightClick(false);
+                    LeftClick(true);
+                }
             }
-            else if(val=="Pull") {
-            if (!rightC) {
-                RightClick(true);
-                rightC = true;
-            }
+            else if (val == "Pull") {
+                if (click == "Pull") {
+                    // Does nothing
+                }
+                else if (click == "None") {
+                    click = val;
+                    RightClick(true);
+                }
+                else if (click == "Push") {
+                    click = val;
+                    LeftClick(false);
+                    RightClick(true);
+                }
             }
             else if (val == "None") {
-                if (leftC) {
+                if (click == "Push") {
                     LeftClick(false);
-                    leftC = false;
                 }
-                if (rightC) {
+                else if (click == "Pull") {
                     RightClick(false);
-                    rightC = false;
                 }
+                click = val;
             }
         }
     }
-}
+        }

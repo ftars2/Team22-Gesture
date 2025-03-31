@@ -1,0 +1,24 @@
+For gesture settings there can be multiple key presses that are pressed in order. you can type approved commands, or put string/characters in " ". If you type a character (ex: "a") then it will be held. If you type a string, all previously held buttons will be released. Approved macros will be held.
+Aproved macros:
+Lclick, Rclick, onScreenKeyboard, Space, Alt, Win, Ctrl, Lshift, Caps, Tab, Esc, Enter, F1-F12, Volume_up, Volume_down, Mute, Pause/Play, Backspace, Left_arrow, Right_arrow, Up_arrow, Down_arrow, any other expected values in "".
+example formats:
+Shift + Tab
+Ctrl + "s"
+Ctrl + "t" + "youtube.com" + Enter
+
+Numerical settings require a number.
+
+Gesture settings (type "N/A" for no action):
+None: N/A
+down: Down_arrow
+left: Left_arrow
+pressdown: Lclick
+pressup: Rclick
+right: Right_arrow
+up: Up_arrow
+
+Numerical settings (Requires a value):
+gesture threshold: 4
+mouse sensitivity: 10
+mouse threshold: 10
+usable range: 1000

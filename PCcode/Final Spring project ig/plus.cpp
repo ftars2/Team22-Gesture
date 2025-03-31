@@ -85,9 +85,7 @@ const char* filename = "settings.txt";
 //default settings for settings expecting number
 const std::map<std::string, std::string> NDsettings = {
     {"mouse sensitivity", "10"},
-    {"mouse threshold", "10"},
-    {"usable range", "1000"},
-    {"gesture threshold", "4"}
+    {"mouse threshold", "10"}
 };
 
 //default settings for gestures
