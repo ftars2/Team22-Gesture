@@ -10,12 +10,28 @@
 #include <cstdlib>
 #include "com.h"
 #include "plus.h"
+#include <Windows.h>
 //#include "gesture.h"
 using namespace std;
 
+void enableVirtualTerminalProcessing() {
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    if (hOut == INVALID_HANDLE_VALUE) return;
+
+    DWORD dwMode = 0;
+    if (!GetConsoleMode(hOut, &dwMode)) return;
+
+    dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
+    SetConsoleMode(hOut, dwMode);
+    
+}
 pair<map<string, vector<string>>, map<string, string>> dave; 
 int main()
 {
+    HWND console = GetConsoleWindow();
+    ShowWindow(console, SW_MAXIMIZE);
+    enableVirtualTerminalProcessing();
+    
     dave = checkSettings();
     printSettings(dave.first, dave.second);
     cout << "Attempting to connect to device:\n";

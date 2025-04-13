@@ -85,7 +85,8 @@ const char* filename = "settings.txt";
 //default settings for settings expecting number
 const std::map<std::string, std::string> NDsettings = {
     {"mouse sensitivity", "10"},
-    {"mouse threshold", "10"}
+    {"mouse threshold", "10"},
+    {"right click(1 is enabled)", "0"}
 };
 
 //default settings for gestures
@@ -94,8 +95,8 @@ const std::map<std::string, std::string> GDsettings = {
     {"down", "Down_arrow"},
     {"left", "Left_arrow"},
     {"right", "Right_arrow"},
-    {"pressdown", "Lclick"},
-    {"pressup", "Rclick"},
+    //{"pressdown", "Lclick"},
+    //{"pressup", "Rclick"},
     {"None", "N/A"}
 };
 
@@ -110,7 +111,7 @@ const set<string> GVal = {
     "F4", "F5", "F6", "F7", "F8", "F9", "F10",
     "F11", "F12","Volume_up", "Volume_down", "Mute",
     "Pause/Play", "Left_arrow", "Right_arrow",
-    "Up_arrow","Down_arrow", "OnScreenKeybard", "N/A", "Lclick", "Rclick"
+    "Up_arrow","Down_arrow", "OnScreenKeyboard", "N/A", "Lclick", "Rclick"
 };
 
 

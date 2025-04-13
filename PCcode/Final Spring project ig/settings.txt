@@ -12,14 +12,10 @@ Gesture settings (type "N/A" for no action):
 None: N/A
 down: Down_arrow
 left: Left_arrow
-pressdown: Lclick
-pressup: Rclick
 right: Right_arrow
 up: Up_arrow
 
 Numerical settings (Requires a value):
-click sensitivty: 150
-delta range: 70
 mouse sensitivity: 10
 mouse threshold: 10
-usable range: 1000
+right click(1 is enabled): 0

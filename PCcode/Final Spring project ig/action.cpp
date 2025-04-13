@@ -75,23 +75,28 @@ void action(string line) {
                     LeftClick(true);
                 }
                 else if (click == "Pull") {
+                    
                     click = val;
                     RightClick(false);
                     LeftClick(true);
                 }
             }
             else if (val == "Pull") {
-                if (click == "Pull") {
-                    // Does nothing
-                }
-                else if (click == "None") {
-                    click = val;
-                    RightClick(true);
-                }
-                else if (click == "Push") {
-                    click = val;
-                    LeftClick(false);
-                    RightClick(true);
+                if (stoi(dave.second["right click(1 is enabled)"]) == 1) {
+
+
+                    if (click == "Pull") {
+                        // Does nothing
+                    }
+                    else if (click == "None") {
+                        click = val;
+                        RightClick(true);
+                    }
+                    else if (click == "Push") {
+                        click = val;
+                        LeftClick(false);
+                        RightClick(true);
+                    }
                 }
             }
             else if (val == "None") {
